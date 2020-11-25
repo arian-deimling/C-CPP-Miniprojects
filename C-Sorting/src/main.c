@@ -6,18 +6,24 @@
 #include "sort.h"
 #include "array.h"
 
-#define SIZE 1000000
+// SIZE is provided via compiler flag
+const uint32_t size = SIZE;
 
 int main(int argc, char* argv[]) {
 
-    uint32_t* array = malloc(sizeof(uint32_t) * SIZE);
+    // set the psuedo-random number generator seed 
     srand(time(NULL));
 
-    for (uint32_t i = 0; i < SIZE; i++) {
+    // allocate memory in heap for an array
+    uint32_t* array = malloc(sizeof(uint32_t) * size);
+    
+    // fill the array with random numbers
+    for (uint32_t i = 0; i < size; i++) {
         array[i] = rand() % 100;
     }
 
-    double t = clockTimeSort(mergeSortArray, array, SIZE);
+    // calculate the time taken to run the sort function on the array
+    double t = cpuTimeSort(mergeSortArray, array, size);
     printf("%lf\n", t);
 }
 
