@@ -6,7 +6,7 @@
 #include "sort.h"
 #include "array.h"
 
-#define SIZE 100000000
+#define SIZE 1000000
 
 int main(int argc, char* argv[]) {
 
@@ -17,7 +17,7 @@ int main(int argc, char* argv[]) {
         array[i] = rand() % 100;
     }
 
-    double t = clockTimeSort(tMergeSortArray, array, SIZE);
+    double t = clockTimeSort(mergeSortArray, array, SIZE);
     printf("%lf\n", t);
 }
 
