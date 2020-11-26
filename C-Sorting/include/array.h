@@ -15,4 +15,6 @@ double clockTimeSort(void (*sortFunction)(uint32_t*, uint32_t),
                      uint32_t arr[], 
                      uint32_t size);
 
+int isSorted(uint32_t array[], uint32_t size);
+
 #endif // _ARRAY_H_
