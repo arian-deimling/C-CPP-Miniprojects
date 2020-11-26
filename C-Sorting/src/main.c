@@ -12,18 +12,18 @@ const uint32_t size = SIZE;
 int main(int argc, char* argv[]) {
 
     // set the psuedo-random number generator seed 
-    srand(time(NULL));
+    srand(0);
 
     // allocate memory in heap for an array
     uint32_t* array = malloc(sizeof(uint32_t) * size);
     
     // fill the array with random numbers
     for (uint32_t i = 0; i < size; i++) {
-        array[i] = rand() % 100;
+        array[i] = rand();
     }
 
     // calculate the time taken to run the sort function on the array
-    double t = cpuTimeSort(mergeSortArray, array, size);
+    double t = clockTimeSort(tMergeSortArray, array, size);
     printf("%lf\n", t);
 }
 

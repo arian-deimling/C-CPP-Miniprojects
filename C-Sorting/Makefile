@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -g -Wpedantic -I./include -DSIZE=10000000 # -pthread
+CFLAGS = -g -Wpedantic -I./include -DSIZE=500000000 -pthread
 
 OBJDIR = ./obj
 SRCDIR = ./src

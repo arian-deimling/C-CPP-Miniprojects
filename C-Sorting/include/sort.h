@@ -14,6 +14,9 @@
 
 #include <stdint.h>
 #include <stdlib.h>
+#include <pthread.h>
+
+#define MAX_THREADS 32
 
 /**
  * @brief Bubble sorts the array that is passed to the function - O(n²).
@@ -32,7 +35,7 @@
 void bubbleSortArray(uint32_t array[], uint32_t size);
 
 /**
- * @brief Merge sorts the array that is passed to the function - O(n*log(n))
+ * @brief Merge sorts the array that is passed to the function - O(n*log(n)).
  * 
  * The sort divides the provided array into two halves (in place) and calls the
  * merge sort function recursively on each half. Once the function is called on
@@ -45,6 +48,18 @@ void bubbleSortArray(uint32_t array[], uint32_t size);
  * 
  * @return void
  */
-void mergeSortArray (uint32_t array[], uint32_t size);
+void mergeSortArray(uint32_t array[], uint32_t size);
+
+/**
+ * @brief Using POSIX Threads library, implements multi-threaded merge sort.
+ * 
+ * Need to add detailed description.
+ * 
+ * @param array pointer to the first element of an array
+ * @param size the number of values in the array
+ * 
+ * @return void
+ */
+void tMergeSortArray(uint32_t array[], uint32_t size);
 
 #endif // _SORT_H_
