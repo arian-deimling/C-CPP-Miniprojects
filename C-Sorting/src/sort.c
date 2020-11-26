@@ -9,6 +9,8 @@ uint8_t threadCount;
 
 void* threadedMergeSortArrayImpl(void* arrayPtr);
 
+void twoSort(uint32_t array[]);
+
 void bubbleSortArray(uint32_t array[], uint32_t size) {
 
     // boolean value that stores whether the list is sorted
@@ -113,9 +115,16 @@ void* threadedMergeSortArrayImpl(void* arrayPtr) {
     Array array = *((Array*)arrayPtr);
 
     // no sorting to be done if the array length is 0 or 1
-    if (array.size == 1) { return NULL; }
+    if (array.size <= 1) { return NULL; }
 
-    // TODO - handle short arrays differently (i.e. len 2, 3?, 4?)
+    // simpler sort is used if the array length is 2
+    if (array.size == 2) {
+
+        // sort the two values and then return
+        twoSort(array.data);
+
+        return NULL;
+    }
 
     // identifier for thread created for left half of the given array
     pthread_t leftThreadID;
@@ -197,4 +206,18 @@ void* threadedMergeSortArrayImpl(void* arrayPtr) {
     free(tempSorted);
 
     return NULL;
+}
+
+inline void twoSort(uint32_t array[]) {
+
+    uint32_t temp;
+
+    // if the two values are out of order, swap them; otherwise, do nothing
+    if (array[0] > array[1]) {
+        
+        // swap the values in position 0 and 1
+        temp = array[0];
+        array[0] = array[1];
+        array[1] = temp;
+    }
 }
