@@ -24,6 +24,12 @@ int main(int argc, char* argv[]) {
 
     // calculate the time taken to run the sort function on the array
     double t = clockTimeSort(tMergeSortArray, array, size);
-    printf("%lf\n", t);
+
+    if (isSorted(array, size)) {
+        printf("%s", "The array is sorted: ");
+        printf("%lf\n", t);
+    } else {
+        printf("%s", "The array is not sorted\n");
+    }
 }
 
