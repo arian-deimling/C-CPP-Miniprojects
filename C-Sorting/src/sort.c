@@ -63,8 +63,8 @@ void mergeSortArray(uint32_t array[], uint32_t size) {
     // once the halves are sorted, they will be merged into a temp array
     uint32_t *tempSorted = malloc(sizeof(uint32_t) * size);
 
-    uint16_t idxLeft = 0;
-    uint16_t idxRight = 0;
+    uint32_t idxLeft = 0;
+    uint32_t idxRight = 0;
     for (uint32_t i = 0; i < size; i++) {
 
         // if there is no more data in Left, merge values from Right
@@ -175,8 +175,8 @@ void* threadedMergeSortArrayImpl(void* arrayPtr) {
     // once the halves are sorted, they will be merged into a temp array
     uint32_t *tempSorted = malloc(sizeof(uint32_t) * array.size);
 
-    uint16_t idxLeft = 0;
-    uint16_t idxRight = 0;
+    uint32_t idxLeft = 0;
+    uint32_t idxRight = 0;
     for (uint32_t i = 0; i < array.size; i++) {
 
         // if there is no more data in Left, merge values from Right
